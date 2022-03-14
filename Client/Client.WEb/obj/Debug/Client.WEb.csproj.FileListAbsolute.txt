@@ -132,3 +132,4 @@ D:\TEST\Client\Client.WEb\obj\Debug\Client.WEb.csproj.CoreCompileInputs.cache
 D:\TEST\Client\Client.WEb\obj\Debug\Client.WEb.csproj.CopyComplete
 D:\TEST\Client\Client.WEb\obj\Debug\Client.WEb.dll
 D:\TEST\Client\Client.WEb\obj\Debug\Client.WEb.pdb
+D:\TEST\Client\Client.WEb\bin\Json.Net.dll

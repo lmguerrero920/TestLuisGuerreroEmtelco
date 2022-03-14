@@ -66,9 +66,12 @@ namespace Client.WEb.Controllers
                 string json = (new WebClient()).DownloadString("https://gorest.co.in/public/v2/users");
 
                 var root = JToken.Parse(json);
-                var filter = root.Where(x => (int?)x["id"] == Convert.ToInt16(client.DocumentClient)).ToList();
+                //Luego de obtener arrays de la consulta, aplicar filtro
+                //para comparar con la API si el ID existe o no existe
+                //casos de prueba : 0 (no existe ID) , 1 (Encontro una coincidencia)
+                var filter = root.Where(x => (int?)x["id"] == Convert.ToInt32(client.DocumentClient)).ToList();
 
-
+                //Validar que registro no exista en BD
                 bool exist = db.Client.Any(x=> x.DocumentClient == client.DocumentClient);
 
                 if (!exist || filter.Count < 1)

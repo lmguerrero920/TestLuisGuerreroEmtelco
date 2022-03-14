@@ -1,0 +1,9 @@
+D:\TEST\Client\Client.Common\bin\Debug\Client.Common.dll
+D:\TEST\Client\Client.Common\bin\Debug\Client.Common.pdb
+D:\TEST\Client\Client.Common\bin\Debug\Newtonsoft.Json.dll
+D:\TEST\Client\Client.Common\bin\Debug\Newtonsoft.Json.xml
+D:\TEST\Client\Client.Common\obj\Debug\Client.Common.csproj.AssemblyReference.cache
+D:\TEST\Client\Client.Common\obj\Debug\Client.Common.csproj.CoreCompileInputs.cache
+D:\TEST\Client\Client.Common\obj\Debug\Client.Common.csproj.CopyComplete
+D:\TEST\Client\Client.Common\obj\Debug\Client.Common.dll
+D:\TEST\Client\Client.Common\obj\Debug\Client.Common.pdb
