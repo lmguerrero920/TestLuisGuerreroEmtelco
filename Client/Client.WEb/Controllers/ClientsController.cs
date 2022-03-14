@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Client.WEb.Models; 
+using Client.WEb.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Client.WEb.Controllers
 {
@@ -38,18 +39,7 @@ namespace Client.WEb.Controllers
             }
             return View(client);
         }
-        public ActionResult Test(int id )
-        {
-            ServicePointManager.Expect100Continue = true;
-
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            string json = (new WebClient()).DownloadString("https://gorest.co.in/public/v2/users");
-             
-
-
-            return Content(json);
-        }
+ 
 
         // GET: Clients/Create
         public ActionResult Create()
@@ -68,11 +58,20 @@ namespace Client.WEb.Controllers
         {
             if (ModelState.IsValid)
             {
-              //  Test(Convert.ToInt16(client.DocumentClient)); 
+                
+                ServicePointManager.Expect100Continue = true;
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                string json = (new WebClient()).DownloadString("https://gorest.co.in/public/v2/users");
+
+                var root = JToken.Parse(json);
+                var filter = root.Where(x => (int?)x["id"] == Convert.ToInt16(client.DocumentClient)).ToList();
+
 
                 bool exist = db.Client.Any(x=> x.DocumentClient == client.DocumentClient);
 
-                if (!exist)
+                if (!exist || filter.Count < 1)
                 {
 
                     db.Client.Add(client);
